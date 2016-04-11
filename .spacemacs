@@ -233,17 +233,32 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 
-(add-to-list 'load-path "~/.emacs.d2/")
+; markdown mode
+(add-to-list 'load-path "~/.emacs.d2/markdown-mode")
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+; elpy
+(require 'package)
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+(package-initialize)
+;(elpy-enable)
+
+; neotree
+(add-to-list 'load-path "~/.emacs.d2/emacs-neotree")
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
+; pkgbuild-mode
+(add-to-list 'load-path "~/.emacs.d2/pkgbuild-mode")
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
 (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
 
+; elfeed
 (add-to-list 'load-path "~/.emacs.d2/elfeed")
 (autoload 'elfeed "elfeed.el" "Read RSS feeds" t)
 (global-set-key (kbd "C-x w") 'elfeed)
