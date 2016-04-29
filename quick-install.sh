@@ -1,5 +1,9 @@
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-git clone https://github.com/skeeto/elfeed ~/.emacs.d2/elfeed
+if ! [[ -d ~/.emacs.d ]]; then
+	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+fi
+if ! [[ -d ~/.emacs.d2/elfeed ]]; then
+	git clone https://github.com/skeeto/elfeed ~/.emacs.d2/elfeed
+fi
 wget -cqO- https://git.io/vaNlS > ~/.emacs.d2/markdown-mode.el
 wget -cqO- https://git.io/vaNlb > ~/.emacs.d2/pkgbuild-mode.el
 wget -cqO- https://git.io/vaN8f > ~/.emacs.d2/neotree.el
