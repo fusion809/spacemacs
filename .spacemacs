@@ -233,8 +233,8 @@ values."
    dotspacemacs-whitespace-cleanup nil
    ))
 
+(add-to-list 'load-path "~/.emacs.d2")
 ; markdown mode
-(add-to-list 'load-path "~/.emacs.d2/markdown-mode")
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
@@ -249,12 +249,12 @@ values."
 ;(elpy-enable)
 
 ; neotree
-(add-to-list 'load-path "~/.emacs.d2/emacs-neotree")
 (require 'neotree)
+(require 'term-toggle)
+(global-set-key [f9] 'term-toggle)
 (global-set-key [f8] 'neotree-toggle)
 
 ; pkgbuild-mode
-(add-to-list 'load-path "~/.emacs.d2/pkgbuild-mode")
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
 (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
 
@@ -278,20 +278,3 @@ in `dotspacemacs/user-config'."
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
   )
-
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(elfeed-feeds
-   (quote
-    ("https://www.archlinux.org/feeds/packages/" "http://fusion809.github.io/feed/" "http://www.terminally-incoherent.com/blog/feed/"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
